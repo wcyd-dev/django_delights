@@ -62,3 +62,9 @@ class deleteIngredient(DeleteView):
     model = Ingredient
     template_name = "delights/delete_ingredient_form.html"
     success_url = reverse_lazy("ingredient_list")
+
+class addMenuItem(CreateView):
+    model = MenuItem
+    template_name = "delights/create_menu_form.html"
+    fields = ["title","price"]
+    success_url = reverse_lazy("menu_list")
