@@ -1,0 +1,28 @@
+/* body{
+    color:red;
+}
+#nav{
+    color: green;
+}
+h2{
+    color: green;
+} */
+
+table{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+}
+th{
+    background-color: #c9c9c9;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}

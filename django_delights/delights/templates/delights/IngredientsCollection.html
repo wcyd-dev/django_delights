@@ -1,28 +1,30 @@
 {% extends "delights/base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'delights/base.css' %}">
+{% endblock %}
 
-<h2>Ingredients List</h2>
 {% block content %}
+    <h2>Ingredients List</h2>
     <div>
         <!-- ListView Ingredients display -->
          <table>
-            <th>
-                <tr>
-                    <td>Name</td>
-                    <td>Quantity</td>
-                    <td>Unit</td>
-                    <td>Unit Price</td>
-                </tr>
-            </th>
-            <td>
-                {% for ingredient in ingredient_list %}
-                <tr>
-                    <td>{{ ingredient.name }}</td>
-                    <td>{{ ingredient.quantity }}</td>
-                    <td>{{ ingredient.unit }}</td>
-                    <td>{{ ingredient.unit_price }}</td>
-                </tr>
-                {% endfor %}
-            </td>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Unit Price</th>
+            </tr>
+            {% for ingredient in ingredient_list %}
+            <tr>
+                <td>{{ ingredient.id }}.</td>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.quantity }}</td>
+                <td>{{ ingredient.unit }}</td>
+                <td>{{ ingredient.unit_price }}</td>
+            </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}

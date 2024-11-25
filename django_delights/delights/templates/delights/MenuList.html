@@ -1,7 +1,10 @@
 {% extends "delights/base.html" %}
-
-<h2>Menu Items</h2>
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'delights/base.css' %}">
+{% endblock %}
 {% block content %}
+    <h2>Menu Items</h2>
     <div>
         <!-- ListView MenuItems -->
          <table>

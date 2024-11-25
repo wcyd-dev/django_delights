@@ -1,13 +1,18 @@
 <html>
     <head>
-
+        {% block head %}
+        
+        {% endblock %}
     </head>
     <body>
         <h1>Django Delights Inventory Application</h1>
         <div id="nav">
-            <a href="/ingredient/list">Ingredients</a>
-            <a href="/purchase/list">Purchases</a>
-            <a href="/menu/list">Menu Items</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/ingredient/list">Ingredients</a></li>
+                <li><a href="/purchase/list">Purchases</a></li>
+                <li><a href="/menu/list">Menu Items</a></li>
+            </ul>
         </div>
         {% block content %}
 

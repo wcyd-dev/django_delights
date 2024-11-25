@@ -1,12 +1,16 @@
 {% extends "delights/base.html" %}
-
-<h2>Purchase List</h2>
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'delights/base.css' %}">
+{% endblock %}
 {% block content %}
+    <h2>Purchase List</h2>
     <div>
         <!-- ListView Purchase display -->
          <table>
             <th>
                 <tr>
+                    <td>#</td>
                     <td>Purchased Item</td>
                     <td>Timestamp</td>
                 </tr>
@@ -14,6 +18,7 @@
             <td>
                 {% for purchase in purchase_list %}
                 <tr>
+                    <td>{{ purchase.id }}.</td>
                     <td>{{ purchase.menu_item.title }}</td>
                     <td>{{ purchase.timestamp }}</td>
                 </tr>
