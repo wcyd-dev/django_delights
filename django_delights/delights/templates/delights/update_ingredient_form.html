@@ -1,0 +1,11 @@
+{% extends "delights/base.html" %}
+{% block content %}
+<h2>Update ingredient - {{ object.name }}</h2>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update ingredient">
+    </form>
+</div>
+{% endblock %}
