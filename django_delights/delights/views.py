@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Ingredient, Purchase, MenuItem
+from .models import Ingredient, Purchase, MenuItem, RecipeRequirement
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import Http404, HttpResponse, HttpRequest
@@ -10,10 +10,21 @@ def home_view(request):
     #calculate total revenue
     allPurchases = Purchase.objects.all()
     revenue = 0
+    cost = 0
     for purchase in allPurchases:
         revenue += purchase.menu_item.price
 
-    return render(request, "delights/home.html", {"revenue": revenue})
+        recipeRequirements = RecipeRequirement.objects.filter(menu_item=purchase.menu_item)
+        for requirement in recipeRequirements:
+            ingredient = requirement.ingredient
+            cost_to_make = requirement.quantity * ingredient.unit_price
+            cost += cost_to_make
+
+    revenue = round(revenue,2)
+    cost = round(cost,2)
+    profit = revenue - cost
+    profit = round(profit,2)
+    return render(request, "delights/home.html", {"revenue": revenue, "cost": cost, "profit": profit})
 
 class getIngredientCollection(ListView):
     model = Ingredient
