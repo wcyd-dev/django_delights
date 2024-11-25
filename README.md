@@ -1,2 +1,2 @@
 # django_delights
-Practicing Django
+Restauran Inventory Management Software writte in Python using Django Framework
