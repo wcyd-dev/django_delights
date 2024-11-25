@@ -1,0 +1,28 @@
+{% extends "delights/base.html" %}
+
+<h2>Ingredients List</h2>
+{% block content %}
+    <div>
+        <!-- ListView Ingredients display -->
+         <table>
+            <th>
+                <tr>
+                    <td>Name</td>
+                    <td>Quantity</td>
+                    <td>Unit</td>
+                    <td>Unit Price</td>
+                </tr>
+            </th>
+            <td>
+                {% for ingredient in ingredient_list %}
+                <tr>
+                    <td>{{ ingredient.name }}</td>
+                    <td>{{ ingredient.quantity }}</td>
+                    <td>{{ ingredient.unit }}</td>
+                    <td>{{ ingredient.unit_price }}</td>
+                </tr>
+                {% endfor %}
+            </td>
+        </table>
+    </div>
+{% endblock %}

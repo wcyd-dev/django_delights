@@ -1,0 +1,24 @@
+{% extends "delights/base.html" %}
+
+<h2>Purchase List</h2>
+{% block content %}
+    <div>
+        <!-- ListView Purchase display -->
+         <table>
+            <th>
+                <tr>
+                    <td>Purchased Item</td>
+                    <td>Timestamp</td>
+                </tr>
+            </th>
+            <td>
+                {% for purchase in purchase_list %}
+                <tr>
+                    <td>{{ purchase.menu_item.title }}</td>
+                    <td>{{ purchase.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </td>
+        </table>
+    </div>
+{% endblock %}

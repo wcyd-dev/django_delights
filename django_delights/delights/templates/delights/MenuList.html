@@ -1,0 +1,27 @@
+{% extends "delights/base.html" %}
+
+<h2>Menu Items</h2>
+{% block content %}
+    <div>
+        <!-- ListView MenuItems -->
+         <table>
+            <th>
+                <tr>
+                    <td>#</td>
+                    <td>Title</td>
+                    <td>Price</td>
+                </tr>
+            </th>
+            <td>
+                {% for item in menuitem_list %}
+                <tr>
+                    <td>{{ item.id }}.</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                
+                {% endfor %}
+            </td>
+        </table>
+    </div>
+{% endblock %}
