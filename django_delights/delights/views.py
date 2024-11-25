@@ -28,7 +28,7 @@ def home_view(request):
 
 class getIngredientCollection(ListView):
     model = Ingredient
-    template_name = "delights/IngredientsCollection.html"
+    template_name = "delights/IngredientList.html"
     #fields = [""]
 
 class getPurchaseList(ListView):
@@ -45,3 +45,18 @@ class getMenuList(ListView):
 class getRecipeList(ListView):
     model = RecipeRequirement
     template_name = "delights/RecipeList.html"
+
+class createIngredient(CreateView):
+    model = Ingredient
+    template_name = "delights/create_ingredient_form.html"
+    fields = ["name","unit_price","quantity","unit"]
+    
+class updateIngredient(UpdateView):
+    model = Ingredient
+    template_name = "delights/update_ingredient_form.html"
+    fields = ["name","unit_price","quantity","unit"]
+
+class deleteIngredient(DeleteView):
+    model = Ingredient
+    template_name = "delights/delete_ingredient_form.html"
+    success_url = "/ingredient/list"
