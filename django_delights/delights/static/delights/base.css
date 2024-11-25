@@ -1,13 +1,3 @@
-/* body{
-    color:red;
-}
-#nav{
-    color: green;
-}
-h2{
-    color: green;
-} */
-
 table{
     border: 1px solid;
     border-collapse: collapse;
@@ -18,7 +8,7 @@ th, td{
     padding: 10px;
 }
 th{
-    background-color: #c9c9c9;
+    background-color: #8c94ff;
     font-size: 16px;
     letter-spacing: 1px;
     text-align: left;
