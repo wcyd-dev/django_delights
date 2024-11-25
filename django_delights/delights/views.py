@@ -7,7 +7,13 @@ from django.http import Http404, HttpResponse, HttpRequest
 # Create your views here.
 
 def home_view(request):
-    return render(request, "delights/base.html")
+    #calculate total revenue
+    allPurchases = Purchase.objects.all()
+    revenue = 0
+    for purchase in allPurchases:
+        revenue += purchase.menu_item.price
+
+    return render(request, "delights/home.html", {"revenue": revenue})
 
 class getIngredientCollection(ListView):
     model = Ingredient
