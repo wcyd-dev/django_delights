@@ -12,6 +12,9 @@ class Ingredient(models.Model):
         verbose_name_plural = 'Ingredients'
         ordering = ["name"]
 
+    def get_absolute_url(self):
+        return "list"
+
 class MenuItem(models.Model):
     title = models.CharField(max_length=150)
     price = models.FloatField()
