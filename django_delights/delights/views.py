@@ -39,6 +39,9 @@ class getMenuList(ListView):
     model = MenuItem
     template_name = "delights/MenuList.html"
 
+    def get_queryset(self):
+        return MenuItem.objects.prefetch_related('reciperequirement_set__ingredient')
+
 class getRecipeList(ListView):
     model = RecipeRequirement
     template_name = "delights/RecipeList.html"

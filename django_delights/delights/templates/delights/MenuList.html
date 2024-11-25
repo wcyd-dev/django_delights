@@ -12,12 +12,27 @@
                 <th>#</th>
                 <th>Title</th>
                 <th>Price</th>
+                <th>Recipe</th>
             </tr>
             {% for item in menuitem_list %}
             <tr>
                 <td>{{ item.id }}.</td>
                 <td>{{ item.title }}</td>
                 <td>{{ item.price }}</td>
+                <td>
+                    <table>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                        </tr>
+                        {% for requirement in item.reciperequirement_set.all %}
+                        <tr>
+                            <td>{{ requirement.ingredient.name }}</td>
+                            <td>{{ requirement.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
             </tr>
             {% endfor %}
         </table>
