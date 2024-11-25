@@ -38,3 +38,7 @@ class getPurchaseList(ListView):
 class getMenuList(ListView):
     model = MenuItem
     template_name = "delights/MenuList.html"
+
+class getRecipeList(ListView):
+    model = RecipeRequirement
+    template_name = "delights/RecipeList.html"
